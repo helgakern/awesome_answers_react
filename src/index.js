@@ -1,13 +1,13 @@
 import React from 'react';
+// const React = require('react');
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import QuestionShowPage from './QuestionShowPage';
+import QuestionIndexPage from './QuestionIndexPage';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  QuestionShowPage(),
   document.getElementById('root')
 );
 
