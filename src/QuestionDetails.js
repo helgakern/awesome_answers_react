@@ -1,6 +1,13 @@
 import React from 'react';
 
 function QuestionDetails(props) {
+  // props looks like { 
+  //   title: title
+  //   body: body
+  //   author: author
+  //   view_count: view_count
+  //   created_at: new Date(created_at)
+  // }
   let full_name;
   if (props.author) {
     full_name = props.author.full_name

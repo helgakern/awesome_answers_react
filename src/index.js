@@ -3,11 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import QuestionShowPage from './QuestionShowPage';
-import QuestionIndexPage from './QuestionIndexPage';
+import App from './App';
 
 ReactDOM.render(
-  QuestionShowPage(),
+  <App />,
   document.getElementById('root')
 );
 

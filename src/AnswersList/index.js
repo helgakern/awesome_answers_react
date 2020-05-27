@@ -1,7 +1,8 @@
 import React from 'react';
 import { AnswerDetails } from '../AnswerDetails'
 
-export default function AnswersList({ answers }) {
+export default function AnswersList({ answers, handleDeleteAnswer }) {
+  console.log(handleDeleteAnswer);
   // const { answers } = props;
   return(
     <ul>
@@ -13,6 +14,7 @@ export default function AnswersList({ answers }) {
               author={answer.author}
               created_at={new Date(answer.created_at)}
             />
+            <button onClick={ () => { handleDeleteAnswer(answer.id) } }>Delete</button>
           </li>
         )
       })}
