@@ -8,12 +8,12 @@ class CurrentDateTime extends Component {
     this.state = {
       dateTime: new Date()
     }
-    console.log('1: constructor')
+    // console.log('1: constructor')
   }
 
   // componentDidMount() gets called after a the component MOUNTS onto the DOM
   componentDidMount() {
-    console.log('3: componentDidMount')
+    // console.log('3: componentDidMount')
 
     // setInterval
     // setTimeout
@@ -26,15 +26,19 @@ class CurrentDateTime extends Component {
     }, 1000)
   }
 
+  componentDidUpdate() {
+    // console.log('4: componentDidUpdate')
+  }
+
   componentWillUnmount() {
-    console.log('5: componentWillUnmount')
-    // on componentWillMount() we set a timer with `setInterval` this gets added to the Window Object and it stays until we call clearInterval.
+    // console.log('5: componentWillUnmount')
+    // on componentWillMount() we set a timer wiht `setInterval` this gets added to the Window Object and it stays until we call clearInterval.
     // If we mount CurrentDateTime and unmount it the `setInterval` will still be working in the background. So we use componentWillUnmount to clean up the `setInterval` if CurrentDateTime gets unmounted
     clearInterval(this.intervalId);
   }
 
   render() {
-    console.log('2: render')
+    // console.log('2: render')
     return(
       <div className="CurrentDateTime">
         { this.state.dateTime.toLocaleString() }

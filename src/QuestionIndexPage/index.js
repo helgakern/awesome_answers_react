@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
-import questionData from '../questionData';
 import QuestionDetails from '../QuestionDetails';
 import NewQuestionForm from '../NewQuestionForm';
+import { Question } from '../requests';
+import { Link } from 'react-router-dom';
 
 class QuestionIndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: questionData,
+      questions: [],
       helloWorld: 'helloWorld'
     }
     this.createQuestion = this.createQuestion.bind(this);
+  }
+
+  componentDidMount() {
+    Question.index().then(questions => {
+      this.setState((state) => {
+        return {
+          questions
+          // questions: questions
+        }
+      })
+      console.log(questions);
+    })
   }
   
   // all functions in ReactJS should be pure functions
@@ -51,16 +64,17 @@ class QuestionIndexPage extends Component {
 
   // the render method relies on this.state to create views
   render() {
-    console.log(this.state)
-    const questions = this.state.question.map( question => {
+    console.log(this)
+    const questions = this.state.questions.map( question => {
       return(
-        <QuestionDetails
-          key={question.id}
-          title={question.title}
-          body={question.body}
-          view_count={question.view_count}
-          created_at={question.created_at}
-        />
+        <Link key={question.id} to={`/questions/${question.id}`}>
+          <QuestionDetails
+            title={question.title}
+            body={question.body}
+            view_count={question.view_count}
+            created_at={question.created_at}
+          />
+        </Link>
       )
     })
 

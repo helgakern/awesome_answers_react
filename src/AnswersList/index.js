@@ -2,8 +2,10 @@ import React from 'react';
 import { AnswerDetails } from '../AnswerDetails'
 
 export default function AnswersList({ answers, handleDeleteAnswer }) {
-  console.log(handleDeleteAnswer);
-  // const { answers } = props;
+  if (!answers) {
+    answers = []
+  }
+  console.log(answers);
   return(
     <ul>
       {answers.map( answer => {

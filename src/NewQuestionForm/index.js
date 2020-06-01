@@ -1,7 +1,7 @@
 import React from 'react';
 
 function NewQuestionForm(props) {
-
+  
   function handleSubmit(event) {
     event.preventDefault();
     const { currentTarget } = event;

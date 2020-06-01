@@ -6,7 +6,7 @@ export function AnswerDetails(props) {
     <div className='AnswerDetails'>
       <p className='text'>
         {props.body} <br />
-        By {props.author.full_name}
+        By {props.author && props.author.full_name}
       </p>
       <p>{props.created_at.toLocaleString()}</p>
     </div>
