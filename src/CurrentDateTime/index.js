@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class CurrentDateTime extends Component {
   // React Components have a lifecycle https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
@@ -6,8 +6,8 @@ class CurrentDateTime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dateTime: new Date()
-    }
+      dateTime: new Date(),
+    };
     // console.log('1: constructor')
   }
 
@@ -20,10 +20,10 @@ class CurrentDateTime extends Component {
     this.intervalId = setInterval(() => {
       this.setState((state) => {
         return {
-          dateTime: new Date()
-        }
-      })
-    }, 1000)
+          dateTime: new Date(),
+        };
+      });
+    }, 1000);
   }
 
   componentDidUpdate() {
@@ -39,12 +39,12 @@ class CurrentDateTime extends Component {
 
   render() {
     // console.log('2: render')
-    return(
-      <div className="CurrentDateTime">
-        { this.state.dateTime.toLocaleString() }
+    return (
+      <div className="ui top right orange large label CurrentDateTime">
+        {this.state.dateTime.toLocaleString()}
       </div>
-    )
+    );
   }
 }
 
-export default CurrentDateTime
+export default CurrentDateTime;

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function QuestionDetails(props) {
-  // props looks like { 
+  // props looks like {
   //   title: title
   //   body: body
   //   author: author
@@ -10,22 +10,22 @@ function QuestionDetails(props) {
   // }
   let full_name;
   if (props.author) {
-    full_name = props.author.full_name
-  } else {
-    full_name = 'N/A'
+    if (props.author.full_name) {
+      full_name = props.author.full_name;
+    } else {
+      full_name = props.author.first_name;
+    }
   }
-  return(
+
+  return (
     <div>
-      <h2>{props.title}</h2>
-      <p>
-        {props.body}<br/>
-        By {full_name}
-      </p>
-      <p>
-        <small>{props.view_count}</small> - <small>{props.created_at.toLocaleString()}</small>
-      </p>
+      <h2 className="ui header">{props.title}</h2>
+      <p>{props.body}</p>
+      <div className="author">By {full_name}</div>
+      <div className="rating">viewed {props.view_count} times</div>
+      <div className="date">{props.created_at.toLocaleString()}</div>
     </div>
-  )
+  );
 }
 
 // export const Hello = 'hello'

@@ -1,25 +1,33 @@
-import React from 'react';
-import { AnswerDetails } from '../AnswerDetails'
+import React from "react";
+import { AnswerDetails } from "../AnswerDetails";
 
 export default function AnswersList({ answers, handleDeleteAnswer }) {
   if (!answers) {
-    answers = []
+    answers = [];
   }
   console.log(answers);
-  return(
+  return (
     <ul>
-      {answers.map( answer => {
-        return(
-          <li key={answer.id}>
+      {answers.map((answer) => {
+        return (
+          <div className="ui clearing segment" key={answer.id}>
             <AnswerDetails
-              body={answer.body}
-              author={answer.author}
-              created_at={new Date(answer.created_at)}
+              {...answer}
+              // body={answer.body}
+              // author={answer.author}
+              // created_at={new Date(answer.created_at)}
             />
-            <button onClick={ () => { handleDeleteAnswer(answer.id) } }>Delete</button>
-          </li>
-        )
+            <button
+              className="ui right floated red small button"
+              onClick={() => {
+                handleDeleteAnswer(answer.id);
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        );
       })}
     </ul>
-  )
+  );
 }
