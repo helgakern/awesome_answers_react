@@ -38,8 +38,8 @@ export const Question = {
   // Delete a Question
   destroy(id) {
     return fetch(`${BASE_URL}/questions/${id}`, {
-      method: "DELETE",
       credentials: "include",
+      method: "DELETE"
     }).then((res) => res.json());
   },
 };
